@@ -18,11 +18,13 @@ handleForecast <- function(model, params) {
 
 
 arima <- function(ts, params) {
+    set.seed(123)
     model <- forecast::auto.arima(ts, trace=TRUE)
     handleForecast(model, params)
 }
 
 ets <- function(ts, params) {
+    set.seed(123)
     model <- forecast::ets(ts, additive.only=TRUE)
     handleForecast(model, params)
 }
